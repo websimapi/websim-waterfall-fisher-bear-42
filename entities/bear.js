@@ -39,12 +39,14 @@ export function createBear(type = 'splashy') {
     const leftArm = createVoxel(-0.95, armY, armZ, armWidth, armHeight, armDepth, bodyMat);
     leftArm.name = 'leftArm';
     leftArm.rotation.z = -Math.PI / 16;
+    leftArm.frustumCulled = false;
     group.add(leftArm);
 
     // Right Arm
     const rightArm = createVoxel(0.95, armY, armZ, armWidth, armHeight, armDepth, bodyMat);
     rightArm.name = 'rightArm';
     rightArm.rotation.z = Math.PI / 16;
+    rightArm.frustumCulled = false;
     group.add(rightArm);
     
     group.position.set(0, 4.65, 0.8); // Adjusted Y to be on top of the log.

@@ -43,6 +43,9 @@ function refreshShowcase() {
     if (rightArm) {
         scene.remove(showcaseFish); // remove from main scene to add to arm
         rightArm.add(showcaseFish);
+        rightArm.visible = true;
+        showcaseFish.visible = true;
+        showcaseFish.frustumCulled = false;
         showcaseFish.position.set(0.1, -0.7, 0.4);
         showcaseFish.rotation.set(-Math.PI / 4, Math.PI / 2, Math.PI);
         showcaseFish.scale.set(0.5, 0.5, 0.5);
