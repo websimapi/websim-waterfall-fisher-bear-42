@@ -103,6 +103,7 @@ export function showStart(isFirstLoad = false) {
         } else {
             clearTimeout(fadeTimeout);
             logo.classList.add('hidden');
+            logo.classList.remove('fade-out'); // ensure it's not fading overlaying content
         }
     }
 }

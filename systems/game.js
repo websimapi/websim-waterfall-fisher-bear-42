@@ -30,9 +30,11 @@ function refreshShowcase() {
     // Bear showcase
     showcaseBear = createBear(playerProgress.selectedBear);
     showcaseBear.name = 'showcase-bear';
-    showcaseBear.userData.isShowcase = true; // Add a flag to identify the showcase bear
+    showcaseBear.userData.isShowcase = true;
     showcaseBear.position.set(0, 4.65, 0.8);
-    showcaseBear.rotation.set(0, 0, 0); // Face camera
+    showcaseBear.rotation.set(0, 0, 0);
+    showcaseBear.frustumCulled = false;
+    showcaseBear.traverse(n => { n.visible = true; n.frustumCulled = false; });
     scene.add(showcaseBear);
     // Fish showcase
     showcaseFish = createFish(scene, 0, playerProgress.selectedFish);
@@ -41,9 +43,10 @@ function refreshShowcase() {
     // Attach fish to bear's hand
     const rightArm = showcaseBear.getObjectByName('rightArm');
     if (rightArm) {
-        scene.remove(showcaseFish); // remove from main scene to add to arm
+        scene.remove(showcaseFish);
         rightArm.add(showcaseFish);
         rightArm.visible = true;
+        rightArm.frustumCulled = false;
         showcaseFish.visible = true;
         showcaseFish.frustumCulled = false;
         showcaseFish.position.set(0.1, -0.7, 0.4);
